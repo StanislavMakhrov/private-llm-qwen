@@ -34,7 +34,7 @@ def _format_prompt(history: list[dict]) -> str:
     parts = []
     for msg in history:
         parts.append(f"<|im_start|>{msg['role']}\n{msg['content']}<|im_end|>")
-    parts.append("<|im_start|>assistant\n<think>")
+    parts.append("<|im_start|>assistant\n<think>\nLet me think step by step.")
     return "\n".join(parts)
 
 
@@ -64,7 +64,7 @@ async def on_message(message: cl.Message):
     final_answer = cl.Message(content="")
 
     # <think> is forced in the prompt, so we start already inside the think block
-    full_response = "<think>"
+    full_response = "<think>\nLet me think step by step."
     in_think = True
     pending = ""
     start = time.time()
