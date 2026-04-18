@@ -51,6 +51,9 @@ async def on_chat_start():
             flash_attn=True,
             verbose=False,
         )
+
+        # warmup
+        llm("Hi", max_tokens=1, temperature=0.0, stream=False)
     cl.user_session.set("history", [])
     await cl.Message(content="Model ready. Ask me anything!").send()
 
