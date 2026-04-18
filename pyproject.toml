@@ -1,0 +1,12 @@
+[project]
+name = "private-llm-qwen"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "llama-cpp-python>=0.3.0",
+    "chainlit>=2.0.0",
+]
+
+[tool.uv]
+# For CUDA build, set env before install:
+# CMAKE_ARGS="-DGGML_CUDA=on" uv sync
