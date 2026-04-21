@@ -40,7 +40,8 @@ GENERATION_KWARGS = dict(
     # Minimum probability threshold; tokens below this are discarded.
     min_p=0.0,
     # Penalises tokens that already appeared to reduce repetition.
-    repeat_penalty=1.05,
+    # Higher values (1.1–1.2) prevent the model from looping inside <think>.
+    repeat_penalty=1.15,
     max_tokens=MAX_TOKENS,
     stream=True,
     # Stop generation when the model emits these special end-of-turn tokens.
